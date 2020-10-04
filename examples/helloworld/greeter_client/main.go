@@ -38,6 +38,7 @@ const (
 func main() {
 	// Set up a connection to the server.
 	var address string
+	fmt.Println("INGRESA LA IP")
 	fmt.Scanf("%s", &address)
 	
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
