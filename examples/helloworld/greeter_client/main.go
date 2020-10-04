@@ -24,18 +24,22 @@ import (
 	"log"
 	"os"
 	"time"
+	"fmt"
 
 	"google.golang.org/grpc"
 	pb "google.golang.org/grpc/examples/helloworld/helloworld"
 )
 
 const (
-	address     = "10.10.28.154:50051"
+	//address     = "10.10.28.154:50051"
 	defaultName = "world"
 )
 
 func main() {
 	// Set up a connection to the server.
+	var address string
+	fmt.Scanf("%s", &address)
+	
 	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
